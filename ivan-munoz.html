@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+
+<dom-module id="ivan-munoz">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-button {
+    font-family: 'Roboto', 'Noto', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+  paper-button.pink {
+    color: var(--paper-pink-a200);
+    --paper-button-ink-color: var(--paper-pink-a200);
+  }
+  paper-button.pink:hover {
+    background-color: var(--paper-pink-100);
+  }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+
+    <div id="container">
+      <paper-button class="pink">link</paper-button>
+    </div>
+
+    <paper-input always-float-label label="Floating label"></paper-input>
+      <paper-input label="username">
+        <iron-icon icon="mail" slot="prefix"></iron-icon>
+          <div slot="suffix">@email.com</div>
+      </paper-input>
+  </template>
+  
+
+  <script>
+    /**
+     * `ivan-munoz`
+     * componente ivan-munoz
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class IvanMunoz extends Polymer.Element {
+      static get is() { return 'ivan-munoz'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'ivan-munoz'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(IvanMunoz.is, IvanMunoz);
+  </script>
+</dom-module>
