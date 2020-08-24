@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="/bower_components/paper-input/paper-input.html">
-<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
 
 <dom-module id="ivan-munoz">
   <template>
@@ -24,15 +25,71 @@
     </style>
     <h2>Hello [[prop1]]!</h2>
 
-    <div id="container">
-      <paper-button class="pink">link</paper-button>
-    </div>
-
-    <paper-input always-float-label label="Floating label"></paper-input>
-      <paper-input label="username">
+<!-- tarjeta de renderizarr -->
+<div class="row">
+  <div class="col-sm">
+    <paper-card  heading="[[Title]]"  animated="false">
+      <div class="card-content">
+        <paper-input label="titulo fijo" value="{{prop1}}" always-float-label label="introduce tu texto"></paper-input>
+      
         <iron-icon icon="mail" slot="prefix"></iron-icon>
-          <div slot="suffix">@email.com</div>
-      </paper-input>
+
+        <div class="card-actions">
+          <br>
+          <br>
+          <div id="container">
+            <paper-button  class="pink">link</paper-button>
+          </div>
+        </div>
+      </div>
+      <slot></slot>
+    </paper-card>
+  </div>
+<!-- finaliza tarjeta de renderizar -->
+
+<!-- tarjeta para traer informacion por componente -->
+  <div class="col-sm">
+    <paper-card  heading="[[Title]]"  animated="false">
+      <div class="card-content">
+        <paper-input label="inputvalue" value="{{inputvalue}}" always-float-label label="introduce tu texto"></paper-input>
+      
+        <iron-icon icon="mail" slot="prefix"></iron-icon>
+
+        <div class="card-actions">
+          <br>
+          <br>
+          <div id="container">
+            <paper-button class="pink">{{inputvalue}}</paper-button>
+          </div>
+        </div>
+      </div>
+      <slot></slot>
+    </paper-card>
+  </div>
+<!--finaliza  tarjeta para traer informacion por componente -->
+
+
+<!-- tarjeta para para doble binding -->
+  <div class="col-sm">
+    <paper-card  heading="[[Title]]"  animated="false">
+      <div class="card-content">
+        <paper-input label="inputlabel" value="{{inputlabel}}" always-float-label label="introduce tu texto"></paper-input>
+        <iron-icon icon="mail" slot="prefix"></iron-icon>
+        <div class="card-actions">
+          <br>
+          <br>
+          <div id="container">
+            <paper-button  class="pink">{{inputlabel}}</paper-button>
+          </div>
+        </div>
+      </div>
+      <slot></slot>
+    </paper-card>
+  </div>
+</div>
+    <!-- finaliza tarjeta para para doble binding -->
+
+    
   </template>
   
 
@@ -52,6 +109,21 @@
           prop1: {
             type: String,
             value: 'ivan-munoz'
+          },
+          inputvalue:{
+            type: String,
+            value:'titulo con una propiedad',
+            notify: true
+          },
+          inputlabel:{
+            type: String,
+            value: 'inpuntlabel',
+            notify: true
+          },
+          valuebutton:{
+            type: String,
+            value: '',
+            notify: true
           }
         };
       }
