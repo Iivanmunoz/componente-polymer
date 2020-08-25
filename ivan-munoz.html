@@ -8,20 +8,31 @@
     <style>
       :host {
         display: block;
+        border-radius: 5px;
+        /* esta disponible para cambiar las carecteristas del componente  */
+        @apply --ivan-munoz;
+      }
+      paper-card{
+        --paper-card:{
+          with:100%;
+          border-radius:5px;
+          box-shadow:none;
+        }
       }
       paper-button {
-    font-family: 'Roboto', 'Noto', sans-serif;
-    font-weight: normal;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-  }
-  paper-button.pink {
-    color: var(--paper-pink-a200);
-    --paper-button-ink-color: var(--paper-pink-a200);
-  }
-  paper-button.pink:hover {
-    background-color: var(--paper-pink-100);
-  }
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+      paper-button.pink {
+        color: var(--paper-pink-a200);
+        --paper-button-ink-color: var(--paper-pink-a200);
+      }
+      paper-button.pink:hover {
+        background-color: var(--paper-pink-100);
+      }
+
     </style>
     <h2>Hello [[prop1]]!</h2>
 
@@ -29,65 +40,19 @@
 <div class="row">
   <div class="col-sm">
     <paper-card  heading="[[Title]]"  animated="false">
-      <div class="card-content">
         <paper-input label="titulo fijo" value="{{prop1}}" always-float-label label="introduce tu texto"></paper-input>
-      
-        <iron-icon icon="mail" slot="prefix"></iron-icon>
-
         <div class="card-actions">
           <br>
           <br>
           <div id="container">
             <paper-button  class="pink">link</paper-button>
           </div>
-        </div>
-      </div>
-      <slot></slot>
-    </paper-card>
-  </div>
-<!-- finaliza tarjeta de renderizar -->
-
-<!-- tarjeta para traer informacion por componente -->
-  <div class="col-sm">
-    <paper-card  heading="[[Title]]"  animated="false">
-      <div class="card-content">
-        <paper-input label="inputvalue" value="{{inputvalue}}" always-float-label label="introduce tu texto"></paper-input>
-      
-        <iron-icon icon="mail" slot="prefix"></iron-icon>
-
-        <div class="card-actions">
-          <br>
-          <br>
-          <div id="container">
-            <paper-button class="pink">{{inputlabel}}</paper-button>
-          </div>
-        </div>
-      </div>
-      <slot></slot>
-    </paper-card>
-  </div>
-<!--finaliza  tarjeta para traer informacion por componente -->
-
-
-<!-- tarjeta para para doble binding -->
-  <div class="col-sm">
-    <paper-card  heading="[[Title]]"  animated="false">
-      <div class="card-content">
-        <paper-input label="inputlabel" value="{{inputlabel}}" always-float-label label="introduce tu texto"></paper-input>
-        <iron-icon icon="mail" slot="prefix"></iron-icon>
-        <div class="card-actions">
-          <br>
-          <br>
-          <div id="container">
-            <paper-button  class="pink">{{inputlabel}}</paper-button>
-          </div>
-        </div>
       </div>
       <slot></slot>
     </paper-card>
   </div>
 </div>
-    <!-- finaliza tarjeta para para doble binding -->
+
 
     
   </template>
